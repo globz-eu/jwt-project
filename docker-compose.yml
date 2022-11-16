@@ -1,0 +1,21 @@
+version: "3.5"
+
+services:
+
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD
+
+  jwt-project:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      - MONGO_URI=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@mongo:27017/
+      - TOKEN_KEY
+      - API_PORT
+    ports:
+      - 4001:4001

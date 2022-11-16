@@ -1,2 +1,3 @@
-# jwt-project
-A demo for an article written about JWT authentication
+# JWT Project
+
+Fork of https://github.com/Olanetsoft/jwt-project
